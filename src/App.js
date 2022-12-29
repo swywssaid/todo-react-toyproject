@@ -29,12 +29,12 @@ export default function App() {
   const handleClick = (id) => {
     let newTodoData = todoData.filter((data) => data.id !== id);
     console.log("newTodoData", newTodoData);
-    setTodoData({ todoData: newTodoData });
+    setTodoData(newTodoData);
   };
 
   const handleChange = (e) => {
     console.log(e.target.value);
-    setValue({ value: e.target.value });
+    setValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -47,7 +47,8 @@ export default function App() {
     };
     console.log(newTodo);
     // push 방법보다 좋은듯.
-    this.setState({ todoData: [...todoData, newTodo], value: "" });
+    setTodoData((prev) => [...prev, newTodo]);
+    setValue("");
   };
 
   const handleCompletedChange = (id) => {
@@ -57,7 +58,7 @@ export default function App() {
       }
       return data;
     });
-    setTodoData({ todoData: newTodoData });
+    setTodoData(newTodoData);
   };
 
   return (
