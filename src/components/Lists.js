@@ -1,5 +1,6 @@
 import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import List from "./List";
 
 export default function Lists({ todoData, setTodoData }) {
   const handleEnd = (result) => {
@@ -30,7 +31,7 @@ export default function Lists({ todoData, setTodoData }) {
               // 리엑트에선 리스트 내 요소를 key로 구분해줘야함.
               <Draggable key={data.id} draggableId={data.id.toString()} index={index}>
                 {(provided, snapshot) => (
-                  <Lists
+                  <List
                     key={data.id}
                     id={data.id}
                     title={data.title}
@@ -39,7 +40,7 @@ export default function Lists({ todoData, setTodoData }) {
                     setTodoData={setTodoData}
                     provided={provided}
                     snapshot={snapshot}
-                  ></Lists>
+                  ></List>
                 )}
               </Draggable>
             ))}
