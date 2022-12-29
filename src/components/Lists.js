@@ -1,26 +1,6 @@
 import React from "react";
 
 export default function Lists({ todoData, setTodoData }) {
-  // JSX 안에서 css 문법은 조금 차이가 있다.
-  // 버튼 모양 바꾸는 css
-  const btnStyle = {
-    color: "#fff",
-    border: "none",
-    padding: "5px 9px",
-    borderRadius: "50%",
-    cursor: "pointer",
-    float: "right",
-  };
-
-  // 클릭시 발생하는 이벤트 동적(클릭스 취소선)이기 때문에 함수로 구현
-  const getStyle = (completed) => {
-    return {
-      padding: "10px",
-      borderBottom: "1px #ccc dotted",
-      textDecoration: completed ? "line-through" : "none",
-    };
-  };
-
   const handleClick = (id) => {
     let newTodoData = todoData.filter((data) => data.id !== id);
     console.log("newTodoData", newTodoData);
@@ -41,11 +21,16 @@ export default function Lists({ todoData, setTodoData }) {
     <div>
       {todoData.map((data) => (
         // 리엑트에선 리스트 내 요소를 key로 구분해줘야함.
-        <div style={getStyle(data.completed)} key={data.id}>
-          <input type="checkbox" defaultChecked={false} onChange={() => handleCompletedChange(data.id)} /> {data.title}
-          <button style={btnStyle} onClick={() => handleClick(data.id)}>
-            x
-          </button>
+        <div key={data.id}>
+          <div className={"flex items-center justify-between w-full px-4 py-1 my-2 text-gray-600 bg-gray-100 border rounded"}>
+            <div className="items-center">
+              <input type="checkbox" defaultChecked={data.completed} onChange={() => handleCompletedChange(data.id)} />{" "}
+              <span className={data.completed && "line-through"}>{data.title}</span>
+            </div>
+            <div className="items-center">
+              <button onClick={() => handleClick(data.id)}>x</button>
+            </div>
+          </div>
         </div>
       ))}
     </div>
