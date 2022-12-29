@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Form from "./components/Form";
 import Lists from "./components/Lists";
 
 // 객체형 컴포넌트 구성
@@ -7,11 +8,8 @@ export default function App() {
   const [todoData, setTodoData] = useState([]);
   const [value, setValue] = useState("");
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    setValue(e.target.value);
-  };
-
+  // handleSubmit을 Form으로 옮기지 않고 App.js에서 처리하는 이유는
+  // 다른 state도 있기 때문에 여기서 처리하는게 좋다.
   const handleSubmit = (e) => {
     // 페이지 리로드 막아줌
     e.preventDefault();
@@ -32,19 +30,8 @@ export default function App() {
         <div className="title">
           <h1>할 일 목록</h1>
         </div>
-
         <Lists todoData={todoData} setTodoData={setTodoData} />
-        <form style={{ display: "flex" }} onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="value"
-            style={{ flex: "10", padding: "5px" }}
-            placeholder="해야 할 일을 입력하세요."
-            value={value}
-            onChange={handleChange}
-          ></input>
-          <input type="submit" value="입력" className="btn" style={{ flex: "1" }}></input>
-        </form>
+        <Form handleSubmit={handleSubmit} value={value} setValue={setValue} setTodoData={setTodoData} />
       </div>
     </div>
   );
