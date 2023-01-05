@@ -5,7 +5,8 @@ import Lists from "./components/Lists";
 
 // 객체형 컴포넌트 구성
 export default function App() {
-  const [todoData, setTodoData] = useState([]);
+  const initialTodoData = localStorage.getItem("todoData") ? JSON.parse(localStorage.getItem("todoData")) : [];
+  const [todoData, setTodoData] = useState(initialTodoData);
   const [value, setValue] = useState("");
 
   // handleSubmit을 Form으로 옮기지 않고 App.js에서 처리하는 이유는
@@ -21,11 +22,13 @@ export default function App() {
     console.log(newTodo);
     // push 방법보다 좋은듯.
     setTodoData((prev) => [...prev, newTodo]);
+    localStorage.setItem("todoData", JSON.stringify([...todoData, newTodo]));
     setValue("");
   };
 
   const handleRemoveClick = () => {
     setTodoData([]);
+    localStorage.setItem("todoData", JSON.stringify([]));
   };
 
   return (

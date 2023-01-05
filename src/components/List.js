@@ -5,6 +5,7 @@ const List = React.memo(({ id, title, completed, todoData, setTodoData, provided
     let newTodoData = todoData.filter((data) => data.id !== id);
     console.log("newTodoData", newTodoData);
     setTodoData(newTodoData);
+    localStorage.setItem("todoData", JSON.stringify(newTodoData));
   };
 
   const [isEditing, setIsEditing] = useState(false);
@@ -18,6 +19,7 @@ const List = React.memo(({ id, title, completed, todoData, setTodoData, provided
       return data;
     });
     setTodoData(newTodoData);
+    localStorage.setItem("todoData", JSON.stringify(newTodoData));
   };
 
   const changeEditedTitle = (e) => {
@@ -32,6 +34,7 @@ const List = React.memo(({ id, title, completed, todoData, setTodoData, provided
       return data;
     });
     setTodoData(newTodoData);
+    localStorage.setItem("todoData", JSON.stringify(newTodoData));
     setIsEditing(false);
   };
 
