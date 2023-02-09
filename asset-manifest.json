@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/todo-react-toyproject/static/css/main.0b9286eb.css",
-    "main.js": "/todo-react-toyproject/static/js/main.ab633f68.js",
+    "main.css": "/todo-react-toyproject/static/css/main.844df952.css",
+    "main.js": "/todo-react-toyproject/static/js/main.9e44bb38.js",
     "static/js/787.7f2c2da0.chunk.js": "/todo-react-toyproject/static/js/787.7f2c2da0.chunk.js",
     "index.html": "/todo-react-toyproject/index.html",
-    "main.0b9286eb.css.map": "/todo-react-toyproject/static/css/main.0b9286eb.css.map",
-    "main.ab633f68.js.map": "/todo-react-toyproject/static/js/main.ab633f68.js.map",
+    "main.844df952.css.map": "/todo-react-toyproject/static/css/main.844df952.css.map",
+    "main.9e44bb38.js.map": "/todo-react-toyproject/static/js/main.9e44bb38.js.map",
     "787.7f2c2da0.chunk.js.map": "/todo-react-toyproject/static/js/787.7f2c2da0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b9286eb.css",
-    "static/js/main.ab633f68.js"
+    "static/css/main.844df952.css",
+    "static/js/main.9e44bb38.js"
   ]
 }
